@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <form method="post" action="/recipes/auth">
+      User Id: <input type="number" name="uid"> <br>
+      Recipe Name: <input type="text" name="name"> <br>
+      Instructions: <input type="text" name="instructions"> <br>
+      Ingredient: <input type="text" name="ingredient"> <br>
+      <button>Save Recipe</button>
+    </form>
+  </body>
+</html>

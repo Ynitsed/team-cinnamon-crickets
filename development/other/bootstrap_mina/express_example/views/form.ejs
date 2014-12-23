@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!--for the slider-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--script src="/receive.js" type="text/javascript"></script-->
+    
+    <script>
+    var counter = 1;
+    var limit = 10;
+    var search_url="";
+    var id_string= "_app_id=4667a454";
+    var key_string="_app_key=19e631ca5cc3f554227ff9ee8bc5c753";
+    var id_key=id_string+"&"+key_string;
+    var base_url="http://api.yummly.com/v1/api/recipes?"+id_key;
+    var search_variables="";
+    function addInput(divName, elementName){
+      if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+      }
+      else {
+         // var newdiv = document.createElement('div');
+         var newdiv = document.getElementById(elementName).cloneNode(true);
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+      }
+    }
+    </script>
+
+    <form method="post" action="/user/auth">
+      <!--Ingredients-->
+    <div id="ingredients">
+      Ingredients:<br>
+      <div id="ingredients_each">
+    <input list="allowedIngredient[]" name="allowedIngredient[]">
+    <datalist id="allowedIngredient[]">
+      <% for(var i=0;i<ingredients.length;i++){ %>
+      <option value='<%= ingredients[i] %>'>
+      <% } %> 
+    </datalist>
+  </div>
+  </div>
+    <input type="button" value="Add another ingredient" onClick="addInput('ingredients', 'ingredients_each');"><br><br>
+
+    <!--Allergies-->
+    Allergy<br>
+    <input type="checkbox" name="allowedAllergy[]" value="396^Dairy-Free">Dairy-Free
+    <input type="checkbox" name="allowedAllergy[]" value="397^Egg-Free">Egg-Free
+    <input type="checkbox" name="allowedAllergy[]" value="394^Peanut-Free">Peanut-Free
+    <input type="checkbox" name="allowedAllergy[]" value="393^Gluten-Free">Gluten-Free
+    <input type="checkbox" name="allowedAllergy[]" value="398^Seafood-Free">Seafood-Free
+    <input type="checkbox" name="allowedAllergy[]" value="399^Sesame-Free">Sesame-Free
+    <input type="checkbox" name="allowedAllergy[]" value="400^Soy-Free">Soy-Free
+    <input type="checkbox" name="allowedAllergy[]" value="401^Sulfite-Free">Sulfite-Free
+    <input type="checkbox" name="allowedAllergy[]" value="395^Tree Nut-Free">Tree Nut-Free
+    <input type="checkbox" name="allowedAllergy[]" value="392^Wheat-Free">Wheat-Free
+    <br><br>
+
+    <!--Allowed Diet-->
+    Allergy<br>
+    <input type="checkbox" name="allowedDiet[]" value="388^Lacto vegetarian">Lacto vegetarian
+    <input type="checkbox" name="allowedDiet[]" value="389^Ovo vegetarian">Ovo vegetarian
+    <input type="checkbox" name="allowedDiet[]" value="390^Pescetarian">Pescetarian
+    <input type="checkbox" name="allowedDiet[]" value="386^Vegan">Vegan
+    <input type="checkbox" name="allowedDiet[]" value="387^Lacto-ovo vegetarian">Lacto-ovo vegetarian
+    <br><br>
+    
+    <!--Cuisine Preference-->
+    Cuisine Preference<br>
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-american">American
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-italian">Italian
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-asian">Asian
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-mexican">Mexican
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-southern">Southern and Soul Food
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-french">French        
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-southwestern">Southwestern
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-barbecue-bbq">Barbecue
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-indian">Indian
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-chinese">Chinese
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-cajun">Cajun and Creole
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-english">English
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-mediterranean">Mediterranean
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-greek">Greek
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-spanish">Spanish
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-german">German
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-thai">Thai
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-moroccan">Moroccan
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-irish">Irish
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-japanese">Japanese
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-cuban">Cuban
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-hawaiian">Hawaiin
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-swedish">Swedish
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-hungarian">Hungarian
+    <input type="checkbox" name="allowedCuisine[]" value="cuisine^cuisine-portuguese">Portugese            
+    <br><br>
+
+    <!--Allowed Course-->
+    Course<br>
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Main Dishes">Main Dishes
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Desserts">Desserts
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Side Dishes">Side Dishes
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Lunch and Snacks">Lunch and Snacks
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Appetizers">Appetizers
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Salads">Salads
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Breads">Breads
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Breakfast and Brunch">Breakfast and Brunch
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Soups">Soups
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Beverages">Beverages 
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Condiments and Sauces">Condiments and Sauces 
+    <input type="checkbox" name="allowedCourse[]" value="course^course-Cocktails">Cocktails  
+    <br><br>
+
+    <!--Allowed Holiday-->
+    Holiday/Season<br>    
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-christmas">Christmas
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-summer">Summer
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-thanksgivukkah">Thanksgiving
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-new-year">New Year
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-super-bowl">Super Bowl / Game Day
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-halloween">Halloween
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-hanukkah"> Hanukkah
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-4th-of-july">4th of July
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-fall">Fall
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-winter">Winter
+    <input type="checkbox" name="allowedHoliday[]" value="holiday^holiday-spring">Spring
+    <br><br>
+
+    Preparation time (between 1 and 5):
+    Hour <input type="number" name="time-hour" min="0" max="5">
+    Minute <input type="number" name="time-minute" min="0" max="60" step="15">
+    <br><br>
+
+    Flavour:<br>
+    Sweet<input type="range" name="sweet" min="0" max="10"><br>
+    Meaty<input type="range" name="meaty" min="0" max="10"><br>
+    Sour<input type="range" name="sour" min="0" max="10"><br>
+    Bitter<input type="range" name="bitter" min="0" max="10"><br>
+    Piquant<input type="range" name="piquant" min="0" max="10"><br>
+    <br>
+
+    Nutrients:<br>
+    <!--Alternate representation for nutrients
+    Cholestrol <input type="number" name="cholestrol" min="0" max="10000" step="10">
+    Sodium <input type="number" name="sodium" min="0" max="10000" step="10">
+    Potassium <input type="number" name="potassium" min="0" max="10000" step="10">
+    Trans Fat <input type="number" name="trans_fat" min="0" max="10000" step="10">
+    Saturated Fat <input type="number" name="sat_fat" min="0" max="10000" step="10">
+    Carbohydrates <input type="number" name="carbs" min="0" max="10000" step="10">
+    Fiber <input type="number" name="fiber" min="0" max="10000" step="10">
+    <input type="number" name="protein" min="0" max="10000" step="10">
+    <input type="number" name="vitaminC" min="0" max="10000" step="10">
+    <input type="number" name="calcium" min="0" max="10000" step="10">
+    <input type="number" name="iron" min="0" max="10000" step="10">
+    <input type="number" name="sugar" min="0" max="10000" step="10">
+    <input type="number" name="calories" min="0" max="10000" step="10">
+    <input type="number" name="fat" min="0" max="10000" step="10">
+    <input type="number" name="fat" min="0" max="10000" step="10">
+    <input type="number" name="fat" min="0" max="10000" step="10">
+    -->
+    <script>
+    $(function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-cholestrol" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-cholestrol" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-cholestrol" ).val( "$" + $( "#slider-cholestrol" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-cholestrol" ).slider( "values", 1 ) );
+    });
+
+     $(function() {
+    $( "#slider-potassium" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-potassium" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-potassium" ).val( "$" + $( "#slider-potassium" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-potassium" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-tf" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-tf" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-tf" ).val( "$" + $( "#slider-tf" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-tf" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-na" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-na" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-na" ).val( "$" + $( "#slider-na" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-na" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-sf" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-sf" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-sf" ).val( "$" + $( "#slider-sf" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-sf" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-carbs" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-carbs" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-carbs" ).val( "$" + $( "#slider-carbs" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-carbs" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-fat" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-fat" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-fat" ).val( "$" + $( "#slider-fat" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-fat" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-protein" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-protein" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-protein" ).val( "$" + $( "#slider-protein" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-protein" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-vc" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-vc" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-vc" ).val( "$" + $( "#slider-vc" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-vc" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-ca" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-ca" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-ca" ).val( "$" + $( "#slider-ca" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-ca" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-fe" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-fe" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-fe" ).val( "$" + $( "#slider-fe" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-fe" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-sugar" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-sugar" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-sugar" ).val( "$" + $( "#slider-sugar" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-sugar" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-totalfat" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-totalfat" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-totalfat" ).val( "$" + $( "#slider-totalfat" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-totalfat" ).slider( "values", 1 ) );
+    });
+
+    $(function() {
+    $( "#slider-vitE" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount-vitE" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount-vitE" ).val( "$" + $( "#slider-vitE" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-vitE" ).slider( "values", 1 ) );
+    });
+
+    </script>
+
+    <p>
+    <label for="amount">Calories:</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-range"></div>
+
+    <p>
+    <label for="amount-cholestrol">Cholestrol:</label>
+    <input type="text" id="amount-cholestrol" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-cholestrol"></div>
+
+    <p>
+    <label for="amount-potassium">Potassium:</label>
+    <input type="text" id="amount-potassium" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-potassium"></div>
+
+    <p>
+    <label for="amount-tf">Transfat:</label>
+    <input type="text" id="amount-tf" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-tf"></div>
+
+    <p>
+    <label for="amount-na">Sodium:</label>
+    <input type="text" id="amount-na" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-na"></div>
+
+    <p>
+    <label for="amount-sf">Saturated Fat:</label>
+    <input type="text" id="amount-sf" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-sf"></div>
+
+    <p>
+    <label for="amount-carbs">Carbs:</label>
+    <input type="text" id="amount-carbs" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-carbs"></div>
+
+
+    <p>
+    <label for="amount-fat">Fat:</label>
+    <input type="text" id="amount-fat" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-fat"></div>
+
+    <p>
+    <label for="amount-protein">Protein:</label>
+    <input type="text" id="amount-protein" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-protein"></div>
+
+    <p>
+    <label for="amount-vc">Vitamin C:</label>
+    <input type="text" id="amount-vc" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-vc"></div>
+
+    <p>
+    <label for="amount-ca">Calcium:</label>
+    <input type="text" id="amount-ca" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-ca"></div>
+
+    <p>
+    <label for="amount-fe">Iron:</label>
+    <input type="text" id="amount-fe" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-fe"></div>
+
+    <p>
+    <label for="amount-sugar">Sugar:</label>
+    <input type="text" id="amount-sugar" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-sugar"></div>
+
+    <p>
+    <label for="amount">Sodium:</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-range"></div>
+
+    <p>
+    <label for="amount-totalfat">Total Fat:</label>
+    <input type="text" id="amount-totalfat" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-totalfat"></div>
+
+    <p>
+    <label for="amount-vitE">Vitamin E:</label>
+    <input type="text" id="amount-vitE" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-vitE"></div>
+
+    </form>
+
+    <button onClick="showValues()">Submit</button>
+    </form>
+
+    <script>
+  function showValues() {
+    var str = $( "form" ).serialize();
+    search_variables=str.substring(0, str.indexOf("&time-hour"));
+    console.log("str "+str);
+    window.location = window.location.href+"/"+str;
+    console.log("search_variables "+search_variables);
+    console.log(counter);
+    console.log("");
+    $( "#results" ).text( str );
+    search_url=base_url+"&"+search_variables;
+    console.log(search_url);
+    $.get( search_url, function( data ) {
+  $( ".result" ).html( data );
+
+  var attribution= data.attribution;
+  var totalMatchCount= data.totalMatchCount;
+  var facetCount= data.facetCount;
+  var matches= data.matches;
+  var criteria= data.criteria;
+
+  console.log("attribution "+attribution);
+  console.log("totalMatchCount "+totalMatchCount);
+  console.log("facetCount "+facetCount);
+
+  for(var i=0;i<matches.length;i++){
+  console.log(matches[i]);
+  var imageUrlsBySize=matches[i].imageUrlsBySize["90"];
+  var sourceDisplayName=matches[i].sourceDisplayName;
+  var ingredients=matches[i].ingredients;
+  var id=matches[i].id;
+  var smallImageUrls=matches[i].smallImageUrls;
+  var totalTimeInSeconds= matches[i].totalTimeInSeconds;
+  var rating= matches[i].rating;
+  var attributes=matches[i].attributes;
+  var cuisine= attributes.cuisine;
+  var holiday=attributes.holday;
+  var course= attributes.course;
+  var recipeName=matches[i].recipeName;
+
+  var flavors=matches[i].flavors;
+  var bitterness=flavors.bitter;
+  var meaty=flavors.meaty;
+  var piquant= flavors.piquant;
+  var salty=flavors.salty;
+  var sour=flavors.sour;
+  var sweet=flavors.sweet;
+
+  console.log("imageUrlsBySize "+imageUrlsBySize);
+  console.log("sourceDisplayName "+sourceDisplayName);
+  console.log("ingredients "+ingredients);
+  console.log("id "+id);
+  console.log("smallImageUrls "+smallImageUrls);
+  console.log("rating "+rating);
+  }
+  console.log(criteria);
+  alert( "Load was performed." );
+});
+  }
+</script>
+  </body>
+</html>

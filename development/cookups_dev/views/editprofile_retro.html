@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+       <img src=<%= user.picture %> style="width:300px" /> 
+        <form id="useredit" method="post" action="/user/authedit">
+        User Name: <input type="text" name="uname" value=<%=user.uname%> placeholder="Master Chef" /> <br>
+        Email: <input type="email" name="email" value=<%=user.email%> placeholder="sus@cookups.org" /> <br>
+        Bio: <textarea name="bio" form="useredit" rows="3" placeholder= "I'm so cool."><%if(user.bio){%><%=user.bio%><%}%></textarea> <br>
+  Picture:(enter a url here) <input type="text" name="picture" value=<%=user.picture%> placeholder="https://www.cs.umass.edu/sites/default/files/people/faculty/tim-richards.jpeg" /> 
+      <button>SAVE</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "name": "user",
+    "version": "0.0.1",
+    "author": "Albert",
+    "description": "library for accessing users",
+    "main": "./user.js"
+}

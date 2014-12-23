@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div><%= message %></div><br>
+
+    <form method="post" action="/user/newuser">
+      User Name: <input type="text" name="uname"> <br>
+      E-mail: <input type"text" name="email"> <br>
+      Password:  <input type="password" name="password"> <br>
+      Retype Password: <input type="password" name="retypepassword"> <br>
+     <button>Register</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <!-- Title here -->
+        <title><%= title %></title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<base href="/">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+<script rel="stylesheet" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your,Keywords">
+    <meta name="author" content="ResponsiveWebInc">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link href="css/settings.css" rel="stylesheet">   
+    <!-- FlexSlider Css -->
+    <link rel="stylesheet" href="css/flexslider.css" media="screen" />
+    <!-- Portfolio CSS -->
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <!-- Font awesome CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet"> 
+    <!-- Custom Less -->
+    <link href="css/less-style.css" rel="stylesheet"> 
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if IE]><link rel="stylesheet" href="css/ie-style.css"><![endif]-->
+    
+    <!-- Favicon -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="img/fav.ico"/>
+  </head>
+
+  <script>
+  function navigator(path) {
+  	window.location = window.location.href.substring(0, window.location.href.length-4)+path;
+  }
+  </script>
+  
+  <body>
+
+    <!-- Page Wrapper -->
+    <div class="wrapper">
+    
+      <!-- Header Start -->
+      
+      <div class="header">
+        <div class="container">
+          <!-- Header top area content -->
+          
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-5">
+              <!-- Link -->
+              <a id = "logo" onClick="navigator('');" onmouseover="">
+              <style>
+              #logo{
+                cursor: pointer;
+              }
+              </style>
+                <!-- Logo area -->
+                <div class="logo">
+                  <img class="img-responsive" src="img/logo.png" alt="" />
+                  <!-- Heading -->
+                  <h1>CookUps</h1>
+                  <!-- Paragraph -->
+                  <p>Cooking made Easy!</p>
+                </div>
+              </a>
+              <div id = "woopydoopyloopyloo"></div>
+
+            </div>
+            <div class="col-md-8 col-sm-7">
+              <!-- Navigation -->
+              <nav class="navbar navbar-default navbar-right" role="navigation">
+                <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                      
+                      <body>
+                      <li><a id = "home" alt="" onClick="navigator('');" onmouseover=""/><img src="img/nav-menu/nav1.jpg" class="img-responsive" alt="" /> Home</a></li>
+                      <style>
+                      #home{
+                        cursor: pointer;
+                      }
+                      </style>
+                      
+                      <li><a id = "search" alt="" onClick="navigator('form/alt');" onmouseover=""/><img src="img/nav-menu/nav3.jpg" class="img-responsive" alt="" />Search</a></li>
+                      <style>
+                      #search{
+                        cursor: pointer;
+                      }
+                      </style>
+
+                      <% if(user) { %>
+                      <li><a id = "profile" alt="" onClick="navigator('viewProfile');" onmouseover=""/><img src="img/nav-menu/nav2.jpg" class="img-responsive" alt="" /> Profile</a></li>
+                      <style>
+                      #profile{
+                        cursor: pointer;
+                      }
+                      </style>
+
+                      <% } %>
+                      
+                      <li><a id = "about" alt="" onClick="navigator('about');" onmouseover=""/><img src="img/nav-menu/nav6.jpg" class="img-responsive" alt="" /> About</a></li>
+                      <style>
+                      #about{
+                        cursor: pointer;
+                      }
+                      </style>
+
+                      <% if(user) { %>
+                      <li><a id = "logout" alt="" onClick="navigator('user/logout');" onmouseover=""/><img src="img/nav-menu/nav5.jpg" class="img-responsive" alt="" />Logout</a></li>
+                      <style>
+                      #logout{
+                        cursor: pointer;
+                      }
+                      </style>
+
+                      <% } %>
+                      
+
+                    </ul>
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+              </nav>
+            </div>
+          </div>
+        </div> <!-- / .container -->
+      </div>
+      
+      <!-- Header End -->
+      
+    </div><!-- / Wrapper End -->
+
+    <!--for the slider-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--script src="/receive.js" type="text/javascript"></script-->
+    
+    <script>
+    var counter = 1;
+    var limit = 10;
+    var search_url="";
+    function addInput(divName, elementName){
+      if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+      }
+      else {
+         // var newdiv = document.createElement('div');
+         var newdiv = document.getElementById(elementName).cloneNode(true);
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+      }
+    }
+    </script>
+
+    <form method="post" action="" onsubmit="searchQuery()">
+       <!--Recipe name-->
+    <div id="name">
+      <h1 class="ui-heading">
+  <h1>Recipe Name:</h1><br>
+      <input type="text" name="q">
+    </div>
+      <!--Ingredients-->
+
+    <div id="ingredients">
+      <h1 class="ui-heading">Ingredients:</h1><br>
+      <div id="ingredients_each">
+    <input list="allowedIngredient" name="allowedIngredient">
+    <datalist id="allowedIngredient">
+      <% for(var i=0;i<ingredients.length;i++){ %>
+      <option value='<%= ingredients[i] %>'>
+      <% } %> 
+    </datalist>
+  </div>
+  </div>
+    <input type="button" value="Add another ingredient" onClick="addInput('ingredients', 'ingredients_each');"><br><br>
+
+<div data-role="collapsible">
+  <h1>Allergy</h1>
+    <!--Allergies-->
+    <div class="ui-field-contain">
+    <fieldset data-role="controlgroup">
+   <label> <input type="checkbox" name="allowedAllergy" value="Dairy">Dairy-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Egg">Egg-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Peanut">Peanut-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Gluten">Gluten-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Seafood">Seafood-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Sesame">Sesame-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Soy">Soy-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Sulfite">Sulfite-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="TreeNut">Tree Nut-Free</label>
+    <label><input type="checkbox" name="allowedAllergy" value="Wheat">Wheat-Free</label>
+    <br><br>
+    </fieldset>
+</div>
+</div>
+
+<div data-role="collapsible">
+  <h1>Allowed Diet</h1>
+    <!--Allowed Diet-->
+        <div class="ui-field-contain">
+    <fieldset data-role="controlgroup">
+    <label> <input type="checkbox" name="allowedDiet" value="Lactovegetarian">Lacto vegetarian</label> 
+    <label> <input type="checkbox" name="allowedDiet" value="Ovovegetarian">Ovo vegetarian</label> 
+    <label> <input type="checkbox" name="allowedDiet" value="Pescetarian">Pescetarian</label> 
+    <label> <input type="checkbox" name="allowedDiet" value="Vegan">Vegan</label> 
+    <label> <input type="checkbox" name="allowedDiet" value="Lactoovovegetarian">Lacto-ovo vegetarian</label> 
+    <br><br>
+    </fieldset>
+</div>
+</div>
+
+<div data-role="collapsible">
+  <h1>Cuisine Preference</h1>
+    <!--Cuisine Preference-->
+       <div class="ui-field-contain">
+    <fieldset data-role="controlgroup"  data-mini="true">
+    <label><input type="checkbox" name="allowedCuisine" value="american">American</label>
+    <label><input type="checkbox" name="allowedCuisine" value="italian">Italian</label>
+    <label><input type="checkbox" name="allowedCuisine" value="asian">Asian</label>
+    <label><input type="checkbox" name="allowedCuisine" value="mexican">Mexican</label>
+    <label><input type="checkbox" name="allowedCuisine" value="southern">Southern and Soul Food</label>
+    <label><input type="checkbox" name="allowedCuisine" value="french">French</label>        
+    <label><input type="checkbox" name="allowedCuisine" value="southwestern">Southwestern</label>
+    <label><input type="checkbox" name="allowedCuisine" value="barbecue">Barbecue</label>
+    <label><input type="checkbox" name="allowedCuisine" value="indian">Indian</label>
+    <label><input type="checkbox" name="allowedCuisine" value="chinese">Chinese</label>
+    <label><input type="checkbox" name="allowedCuisine" value="cajun">Cajun and Creole</label>
+    <label><input type="checkbox" name="allowedCuisine" value="english">English</label>
+    <label><input type="checkbox" name="allowedCuisine" value="mediterranean">Mediterranean</label>
+    <label><input type="checkbox" name="allowedCuisine" value="greek">Greek</label>
+    <label><input type="checkbox" name="allowedCuisine" value="spanish">Spanish</label>
+    <label><input type="checkbox" name="allowedCuisine" value="german">German</label>
+    <label><input type="checkbox" name="allowedCuisine" value="thai">Thai</label>
+    <label><input type="checkbox" name="allowedCuisine" value="moroccan">Moroccan</label>
+    <label><input type="checkbox" name="allowedCuisine" value="irish">Irish</label>
+    <label><input type="checkbox" name="allowedCuisine" value="japanese">Japanese</label>
+    <label><input type="checkbox" name="allowedCuisine" value="cuban">Cuban</label>
+    <label><input type="checkbox" name="allowedCuisine" value="hawaiian">Hawaiin</label>
+    <label><input type="checkbox" name="allowedCuisine" value="swedish">Swedish</label>
+    <label><input type="checkbox" name="allowedCuisine" value="hungarian">Hungarian</label>
+    <label><input type="checkbox" name="allowedCuisine" value="portuguese">Portugese</label>            
+    <br><br></fieldset>
+</div>
+</div>
+
+<div data-role="collapsible">
+  <h1>Food Course</h1>
+    <!--Allowed Course-->
+    <div class="ui-field-contain">
+    <fieldset data-role="controlgroup">
+    <label><input type="checkbox" name="allowedCourse" value="MainDishes">Main Dishes</label>
+    <label><input type="checkbox" name="allowedCourse" value="Desserts">Desserts</label>
+    <label><input type="checkbox" name="allowedCourse" value="SideDishes">Side Dishes</label>
+    <label><input type="checkbox" name="allowedCourse" value="LunchandSnacks">Lunch and Snacks</label>
+    <label><input type="checkbox" name="allowedCourse" value="Appetizers">Appetizers</label>
+    <label><input type="checkbox" name="allowedCourse" value="Salads">Salads</label>
+    <label><input type="checkbox" name="allowedCourse" value="Breads">Breads</label>
+    <label><input type="checkbox" name="allowedCourse" value="Breakfast">Breakfast and Brunch</label>
+    <label><input type="checkbox" name="allowedCourse" value="Soups">Soups</label>
+    <label><input type="checkbox" name="allowedCourse" value="Beverages">Beverages</label> 
+    <label><input type="checkbox" name="allowedCourse" value="CondimentsandSauces">Condiments and Sauces</label> 
+    <label><input type="checkbox" name="allowedCourse" value="Cocktails">Cocktails </label> 
+    <br><br></fieldset>
+</div></div>
+<div data-role="collapsible">
+  <h1>Holiday and Season</h1>
+    <!--Allowed Holiday-->
+    <div class="ui-field-contain">
+    <fieldset data-role="controlgroup">   
+    <label><input type="checkbox" name="allowedHoliday" value="christmas">Christmas</label>
+    <label><input type="checkbox" name="allowedHoliday" value="summer">Summer</label>
+    <label><input type="checkbox" name="allowedHoliday" value="thanksgiving">Thanksgiving</label>
+    <label><input type="checkbox" name="allowedHoliday" value="newyear">New Year</label>
+    <label><input type="checkbox" name="allowedHoliday" value="superbowl">Super Bowl / Game Day</label>
+    <label><input type="checkbox" name="allowedHoliday" value="halloween">Halloween</label>
+    <label><input type="checkbox" name="allowedHoliday" value="hanukkah"> Hanukkah</label>
+    <label><input type="checkbox" name="allowedHoliday" value="independence">4th of July</label>
+    <label><input type="checkbox" name="allowedHoliday" value="fall">Fall</label>
+    <label><input type="checkbox" name="allowedHoliday" value="winter">Winter</label>
+    <label><input type="checkbox" name="allowedHoliday" value="spring">Spring</label>
+    <br><br></fieldset>
+</div>
+</div>
+
+<div data-role="collapsible">
+  <h1>Preparation Time</h1>
+    <div class="ui-field-contain">
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <label for="timehour">Hour</label>
+        <select name="timehour" id="timehour">
+          <option value="">Hour(s):</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="0">3</option>
+            <option value="1">4</option>
+            <option value="2">5</option>
+            <option value="0">6</option>
+        </select>
+        <label for="timeminute">Minue</label>
+        <select name="timeminute" id="timeminute">
+          <option value="">Minutes:</option>
+            <option value="0">0</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+            <option value="45">45</option>
+        </select>
+    </fieldset>
+</div>
+<br><br>
+</div>
+<div data-role="collapsible">
+  <h1>Flavors</h1>
+    Flavour:<br>
+    <div data-role="rangeslider">
+    <label for="sweetmin">Sweet:</label>
+    <input name="sweetmin" id="sweetmin" min="0" max="1" step=".1" value="0" type="range">
+    <label for="sweetmax">Sweet:</label>
+    <input name="sweetmax" id="sweetmax" min="0" max="1" step=".1" value="1" type="range">
+  </div>
+    <div data-role="rangeslider">
+    <label for="meatymin">Meaty:</label>
+    <input name="meatymin" id="meatymin" min="0" max="1" step=".1" value="0" type="range">
+    <label for="meatymax">Meaty:</label>
+    <input name="meatymax" id="meatymax" min="0" max="1" step=".1" value="1" type="range">
+  </div>
+    <div data-role="rangeslider">
+    <label for="sourmin">Sour:</label>
+    <input name="sourmin" id="sourmax" min="0" max="1" step=".1" value="0" type="range">
+    <label for="sourmax">Sour:</label>
+    <input name="sourmax" id="sourmax" min="0" max="1" step=".1" value="1" type="range">
+  </div>
+    <div data-role="rangeslider">
+    <label for="bittermin">Bitter:</label>
+    <input name="bittermin" id="bittermin" min="0" max="1" step=".1" value="0" type="range">
+    <label for="bittermax">Bitter:</label>
+    <input name="bittermax" id="bittermax" min="0" max="1" step=".1" value="1" type="range">
+  </div>
+    <div data-role="rangeslider">
+    <label for="saltymin">Salty:</label>
+    <input name="saltymin" id="saltymin" min="0" max="1" step=".1" value="0" type="range">
+    <label for="saltymax">Salty:</label>
+    <input name="saltymax" id="saltymax" min="0" max="1" step=".1" value="1" type="range">
+  </div>
+    <br>
+</div>
+
+<div data-role="collapsible">
+  <h1>Calories</h1>
+    Calories:<br>
+    <!-- Javascript files -->
+    <!-- jQuery -->
+
+
+    <div data-role="rangeslider">
+    <label for="kcalmin">Calories: (kiloCalorie)</label>
+    <input name="kcalmin" id="kcalmin" min="0" max="1500" value="0" type="range">
+    <label for="kcalmax">Calories: kiloCalorie</label>
+    <input name="kcalmax" id="kcalmax" min="0" max="1500" value="1500" type="range">
+  </div>
+
+</div>
+
+<div data-role="collapsible">
+  <h1>Nutrients</h1>
+    Nutrients:<br>
+    <!-- Javascript files -->
+    <!-- jQuery -->
+
+    <div data-role="rangeslider">
+    <label for="fatmin">Fat: (grams)</label>
+    <input name="fatmin" id="fatmin" min="0" max="200" value="0" type="range">
+    <label for="fatmax">Fat: (grams)</label>
+    <input name="fatmax" id="fatmax" min="0" max="200" value="200" type="range">
+  </div>
+
+    <div data-role="rangeslider">
+    <label for="cholestrolmin">Cholestrol: (gram)</label>
+    <input name="cholestrolmin" id="cholestrolmin" min="0" max="20" value="0" type="range">
+    <label for="cholestrolmax">Cholestrol: (gram)</label>
+    <input name="cholestrolmax" id="cholestrolmax" min="0" max="20" value="20" type="range">
+  </div>
+
+    <div data-role="rangeslider">
+    <label for="sodiummin">Sodium: (grams)</label>
+    <input name="sodiummin" id="sodiummin" min="0" max="10" step="1" value="0" type="range">
+    <label for="sodiummax">Sodium: (grams)</label>
+    <input name="sodiummax" id="sodiummax" min="0" max="10" step="1" value="10" type="range">
+  </div>
+
+    <div data-role="rangeslider">
+    <label for="carbsmin">Carbs: (grams)</label>
+    <input name="carbsmin" id="carbsmin" min="0" max="500" value="0" type="range">
+    <label for="carbsmax">Carbs: (grams)</label>
+    <input name="carbsmax" id="carbsmax" min="0" max="500" value="500" type="range">
+  </div>
+
+
+    <div data-role="rangeslider">
+    <label for="fibermin">Fiber: (grams)</label>
+    <input name="fibermin" id="fibermin" min="0" max="50" value="0" type="range">
+    <label for="fibermax">Fiber: (grams)</label>
+    <input name="fibermax" id="fibermax" min="0" max="50" value="50" type="range">
+  </div>
+
+    <div data-role="rangeslider">
+    <label for="sugarmin">Sugar: (grams)</label>
+    <input name="sugarmin" id="sugarmin" min="0" max="60" value="0" type="range">
+    <label for="sugarmax">Sugar: (grams)</label>
+    <input name="sugarmax" id="sugarmax" min="0" max="60" value="60" type="range">
+  </div>
+
+    <div data-role="rangeslider">
+    <label for="proteinmin">Protein: (grams)</label>
+    <input name="proteinmin" id="proteinmin" min="0" max="200" value="0" type="range">
+    <label for="proteinmax">Protein: (grams)</label>
+    <input name="proteinmax" id="proteinmax" min="0" max="200" value="200" type="range">
+  </div>
+
+</div>
+
+<div data-role="collapsible">
+  <h1>Retro</h1>
+    <div class="ui-field-contain">
+    <fieldset data-role="controlgroup">
+        <label> Retro! Crappy list view! <input type="checkbox" name="retro" value="oooyeah" > </label>
+    </fieldset>
+  </div></div>
+     <button class="ui-btn ui-btn-b" onClick="searchQuery()">Submit</button>
+
+    </form>
+
+    <script>
+  function searchQuery() {
+    var str = $( "form" ).serialize();
+    window.location = window.location.href.substring(0, window.location.href.length-4)+"formreq?"+str;
+
+  }
+</script>
+      
+      <!-- Footer Start -->
+      
+      <!-- Footer Start -->
+
+      
+        <div class="footer padd">
+          <center>
+            <div class="logo">
+              <img class="img-responsive" src="img/logo.png" alt="" />
+              <!-- Heading -->
+              <h1>Cook Ups</h1>
+            </div>
+            <!-- Paragraph -->
+            <p>Cooking made easy!</p>
+            <!-- Paragraph -->
+            <p>&copy; Copyright 2014 <a href="#">CookUps</a></p>
+          </center>
+        </div>
+      </div>
+      
+      <!-- Footer End -->
+      
+      <!-- Footer End -->
+      
+    
+    
+    <!-- Scroll to top -->
+    <span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span> 
+    
+    
+    
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+    <script type="text/javascript" src="js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+    <!-- FLEX SLIDER SCRIPTS  -->
+    <script defer src="js/jquery.flexslider-min.js"></script>
+    <!-- Pretty Photo JS -->
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="js/html5shiv.js"></script>
+    <!-- Custom JS -->
+    <script src="js/custom.js"></script>
+    <!-- JS code for this page -->
+    <script>
+    /* ******************************************** */
+    /*  JS for SLIDER REVOLUTION  */
+    /* ******************************************** */
+        jQuery(document).ready(function() {
+
+             jQuery('.tp-banner').revolution(
+            {
+
+              delay:9000,
+              startheight:500,
+              
+              hideThumbs:10,
+              
+              navigationType:"bullet",  
+                            
+              hideArrowsOnMobile:"on",
+              
+              touchenabled:"on",
+              onHoverStop:"on",
+              
+              navOffsetHorizontal:0,
+              navOffsetVertical:20,
+              
+              stopAtSlide:-1,
+              stopAfterLoops:-1,
+
+              shadow:0,
+              
+              fullWidth:"on",
+              fullScreen:"off"
+            });
+        });
+    /* ******************************************** */
+    /*  JS for FlexSlider  */
+    /* ******************************************** */
+    
+      $(window).load(function(){
+        $('.flexslider-recent').flexslider({
+          animation:    "fade",
+          animationSpeed: 1000,
+          controlNav:   true,
+          directionNav: false
+        });
+        $('.flexslider-testimonial').flexslider({
+          animation:    "fade",
+          slideshowSpeed: 5000,
+          animationSpeed: 1000,
+          controlNav:   true,
+          directionNav: false
+        });
+      });
+    
+    /* Gallery */
+
+    jQuery(".gallery-img-link").prettyPhoto({
+       overlay_gallery: false, social_tools: false
+    });
+    </script>
+    
+    
+  </body> 
+</html>

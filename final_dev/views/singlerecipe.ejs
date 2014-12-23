@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= recipe.name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+    <h1><%= recipe.name %></h1>
+    <p> <%= recipe.name %></p>
+	<% console.log(recipe)  %>
+	<% if(recipe.images && recipe.images[0] && recipe.images[0].hostedLargeUrl) { %>
+ 	<img src=<%= recipe.images[0].hostedLargeUrl %> style="width:300px" /> 
+	<p>
+	<% } %>
+	<% if(recipe.instructions) { %>
+		<%= recipe.instructions %>	<p>
+	<% } %>
+	<% if(recipe.ingredients){ %>
+		<%= recipe.ingredients.join() %>
+	<% } %>
+	<% if(recipe.attribution && recipe.attribution.html) { %>
+		<%- recipe.attribution.html %>
+	<% } %>
+
+ </body>
+</html>

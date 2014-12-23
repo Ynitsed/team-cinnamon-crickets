@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Title here -->
+
+		<title><%=title %></title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="ResponsiveWebInc">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+		<link href="css/settings.css" rel="stylesheet">		
+		<!-- FlexSlider Css -->
+		<link rel="stylesheet" href="css/flexslider.css" media="screen" />
+		<!-- Portfolio CSS -->
+		<link href="css/prettyPhoto.css" rel="stylesheet">
+		<!-- Font awesome CSS -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">	
+		<!-- Custom Less -->
+		<link href="css/less-style.css" rel="stylesheet">	
+		<!-- Custom CSS -->
+		<link href="css/style.css" rel="stylesheet">
+		<!--[if IE]><link rel="stylesheet" href="css/ie-style.css"><![endif]-->
+
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="img/favicon.ico"/>
+	</head>
+	
+	<body>
+	
+		
+		<!-- Page Wrapper -->
+		<div class="wrapper">
+		
+			<!-- Header Start -->
+			
+			<div class="header">
+				<div class="container">
+					<!-- Header top area content -->
+					
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-sm-5">
+							<!-- Link -->
+							<a href="/">
+								<!-- Logo area -->
+								<div class="logo">
+									<img class="img-responsive" src="img/logo.png" alt="" />
+									<!-- Heading -->
+									<h1>CookUps</h1>
+									<!-- Paragraph -->
+									<p>Cooking made easy!</p>
+								</div>
+							</a>
+							<div id = "woopydoopyloopyloo"></div>
+							<!--<script> 
+							if(typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+
+    if(localStorage.getItem("userName") === null){
+
+    }else{
+    	 document.getElementById("woopydoopyloopyloo").innerHTML = localStorage.getItem("lastname");
+
+    }
+ } else {
+    // Sorry! No Web Storage support..
+}
+
+
+							 </script> -->
+						</div>
+						<div class="col-md-8 col-sm-7">
+							<!-- Navigation -->
+							<nav class="navbar navbar-default navbar-right" role="navigation">
+								<div class="container-fluid">
+									<!-- Brand and toggle get grouped for better mobile display -->
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+											<span class="sr-only">Toggle navigation</span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+									</div>
+
+									<!-- Collect the nav links, forms, and other content for toggling -->
+									
+									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+										<ul class="nav navbar-nav">
+
+
+											
+										    
+											
+											
+											<body>
+											<li><a href="/"><img src="img/nav-menu/nav1.jpg" class="img-responsive" alt="" /> Home</a></li>
+											
+											<li><a href="/form"><img src="img/nav-menu/nav3.jpg" class="img-responsive" alt="" />Search</a></li>
+
+
+											<!--<% if(!user) { %>
+
+											<input type="image" id = "proofile" src="img/put it in.png"   data-toggle="modal" data-target="#login" alt=""/>
+											
+
+											<% } %>-->
+
+											<% if(user) { %>
+
+											<li><a href="/viewProfile"><img src=<%=user.picture %> onError="this.onerror=null;this.src='img/squaredefault.png';" class="img-responsive" alt="" /><%= user.uname %></a></li>
+								
+											<% } %>
+											
+											
+											
+<!-- Button trigger modal -->
+
+    <!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <center>
+          <form method="post" action="/user/auth" class="form-signin" role="form">
+            <br>
+              <label for="inputEmail" class="sr-only">Email</label>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus>
+        
+              <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required> <br>
+
+              <button class="btn btn-default">Log In</button>
+        </form>
+
+        </center>
+      </div>
+      <br>
+        <div class="modal-footer">
+      
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signup">Sign Up</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <center>
+          <form method="post" action="/user/newuser" class="form-signin" role="form">
+            <br>
+              <label for="inputEmail" class="sr-only">Username</label>
+                <input type="username" id="inputEmail" class="form-control" placeholder="Username" name="uname" required autofocus>
+              
+              <label for="inputEmail" class="sr-only">Email</label>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus>
+
+              <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+
+              <label for="inputPassword" class="sr-only">Retype Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="retypepassword" placeholder="Retype Password" required> <br>
+
+              <button class="btn btn-default">Sign Up</button>
+        </form>
+
+        </center>
+      </div>
+      <br>
+        <div class="modal-footer">
+      
+          <button type="button" class="btn btn-default" data-dismiss="modal">Log In</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ 
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+											<!-- <script>
+											if(typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+
+    if(localStorage.getItem("userName") === null){
+    	document.getElementById("proofile").innerHTML = "Log In";
+
+    }else{
+    	 document.getElementById("proofile").innerHTML = "Profile";
+
+    }
+ } else {
+    // Sorry! No Web Storage support..
+} 
+
+									</script> -->
+											
+												<div class="modal fade bs-example-modal-sm" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												  <div class="modal-dialog modal-sm">
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+												      </div>
+												      <div class="modal-body">
+												        <center>
+												          <form method="post" action="/user/auth" class="form-signin" role="form">
+												            <br>
+												              <label for="inputEmail" class="sr-only">Email</label>
+												                <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus>
+												        
+												              <label for="inputPassword" class="sr-only">Password</label>
+												                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required> <br>
+
+												              <button class="btn btn-default">Log In</button>
+												        </form>
+
+												        </center>
+												      </div>
+												      <br>
+												        <div class="modal-footer">
+												      
+												          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signup">Sign Up</button>
+
+												      </div>
+												    </div>
+												  </div>
+												</div>
+											</li>
+											
+											
+											
+											<li><a href="/about"><img src="img/nav-menu/nav6.jpg" class="img-responsive" alt="" /> About</a></li>
+
+											<% if(!user) { %>
+
+											<li><a id = "proofile" data-toggle="modal" data-target="#login" alt="" /><img src="img/nav-menu/nav5.jpg" class="img-responsive" alt="" onmouseover=""/>Login</a></li>
+											<style>
+											#proofile{
+												cursor: pointer;
+											}
+											</style>
+
+											<% } %>
+
+											<% if(user) { %>
+											<li><a href="/user/logout"><img src="img/nav-menu/nav5.jpg" class="img-responsive" alt="" />Logout</a></li>
+											<% } %>
+										</ul>
+									</div><!-- /.navbar-collapse -->
+								</div><!-- /.container-fluid -->
+							</nav>
+						</div>
+					</div>
+				</div> <!-- / .container -->
+			</div>
+			
+			<!-- Header End -->
+			
+			<!-- Header End -->
+			
+			<!-- Header End -->
+			
+			<!-- Banner Start -->
+			
+			<div class="banner padd">
+				<div class="container">
+					<!-- Image -->
+					<img class="img-responsive" src="img/crown-white.png" alt="" />
+					<!-- Heading -->
+					<h2 class="white">About Us</h2>
+					<ol class="breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li class="active">About Us</li>
+					</ol>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			
+			<!-- Banner End -->
+			
+			
+			
+			<!-- Inner Content -->
+			<div class="inner-page padd">
+			
+				<!-- About company -->
+				<div class="about-company padd">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+								<!-- About Compnay Item -->
+								<div class="about-company-item">
+									<!-- About Company Image -->
+									<img class="img-responsive img-thumbnail" src="img/aboutus/cinnamon_crickets.png" alt="" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<!-- About Compnay Item -->
+								<div class="about-company-item">
+									<!-- Heading -->
+									<h3>About Our <span class="lblue">Team</span></h3>
+									<!-- Paragraph -->
+									<p>We are students from University of Massachusetts Amherst and Mount Holyoke College. We focus on human's very basic needs - FOOD!</p>
+									<br /><!--/ Line break -->
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<!-- About company inner items -->
+											<div class="about-company-inner">
+												<!-- Paragraph with icon -->
+												<span class="company-feature"><i class="fa fa-building-o br-red"></i> <b class="red">2</b> Universities</span>
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<!-- About company inner items -->
+											<div class="about-company-inner">
+												<!-- Paragraph with icon -->
+												<span class="company-feature"><i class="fa fa-globe br-lblue"></i> <b class="lblue">3</b> Countries</span>
+											</div>
+										</div>
+										<div class="clearfix visible-xs"></div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<!-- About company inner items -->
+											<div class="about-company-inner">
+												<!-- Paragraph with icon -->
+												<span class="company-feature"><i class="fa fa-users br-green"></i> <b class="green">7</b> Members</span>
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<!-- About company inner items -->
+											<div class="about-company-inner">
+												<!-- Paragraph with icon -->
+												<span class="company-feature"><i class="fa fa-shopping-cart br-purple"></i> <b class="purple">∞</b> Ideas</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Chefs Start -->
+				
+				<div class="default-heading">
+							<!-- Crown image -->
+							<img class="img-responsive" src="img/crown.png" alt="" />
+							<!-- Heading -->
+							<h2>Our Members</h2>
+							<!-- Paragraph -->
+							<p>Greatest team creates greatest product!</p>
+						</div>
+
+				<div class="chefs padd">
+					<div class="container">
+						<!-- Default Heading -->
+						
+						<div class="row">
+							<div class="col-md-3 col-sm-3">
+								<!-- Chef Member -->
+								<div class="chefs-member">
+									<!-- Chefs member header -->
+									<div class="chefs-head">
+										<!-- Member background image -->
+										<!-- chef member image -->
+										<img class="chefs-img img-responsive" src="img/aboutus/albert.png" alt="" />
+									</div>
+									<!--Name / Heading -->
+									<h3><a href="#">Albert</a></h3>
+									<!-- Member designation -->
+									<span>University of Massachusetts Amherst</span>
+									<div class="social">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<!-- Chef Member -->
+								<div class="chefs-member">
+									<!-- Chefs member header -->
+									<div class="chefs-head">
+										<!-- Member background image -->
+										<!-- chef member image -->
+										<img class="chefs-img img-responsive" src="img/aboutus/evan.png" alt="" />
+									</div>
+									<!--Name / Heading -->
+									<h3><a href="#">Evan</a></h3>
+									<!-- Member designation -->
+									<span>University of Massachusetts Amherst</span>
+									<div class="social">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<!-- Chef Member -->
+								<div class="chefs-member">
+									<!-- Chefs member header -->
+									<div class="chefs-head">
+										<!-- Member background image -->
+										<!-- chef member image -->
+										<img class="chefs-img img-responsive" src="img/aboutus/gabriel.png" alt="" />
+									</div>
+									<!--Name / Heading -->
+									<h3><a href="#">Gabriel</a></h3>
+									<!-- Member designation -->
+									<span>University of Massachusetts Amherst</span>
+									<div class="social">
+									</div>
+								</div>
+							</div>
+						
+							<div class="col-md-3 col-sm-3">
+								<!-- Chef Member -->
+								<div class="chefs-member">
+									<!-- Chefs member header -->
+									<div class="chefs-head">
+										<!-- Member background image -->
+										<!-- chef member image -->
+										<img class="chefs-img img-responsive" src="img/aboutus/isaac.png" alt="" />
+									</div>
+									<!--Name / Heading -->
+									<h3><a href="#">Isaac</a></h3>
+									<!-- Member designation -->
+									<span>University of Massachusetts Amherst</span>
+									<div class="social">
+									</div>
+								</div>
+							</div>
+
+					</div>
+					</div>
+
+					<br>
+
+					<div class="chefs padd">
+					<div class="container">
+						<!-- Default Heading -->
+						
+						<div class="row">
+
+							<div class="col-md-3 col-sm-3">
+								<!-- Chef Member -->
+								<div class="chefs-member">
+									<!-- Chefs member header -->
+									<div class="chefs-head">
+										<!-- Member background image -->
+										<!-- chef member image -->
+										<img class="chefs-img img-responsive" src="img/aboutus/jon.png" alt="" />
+									</div>
+									<!--Name / Heading -->
+									<h3><a href="#">Jon</a></h3>
+									<!-- Member designation -->
+									<span>University of Massachusetts Amherst</span>
+									<div class="social">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<!-- Chef Member -->
+								<div class="chefs-member">
+									<!-- Chefs member header -->
+									<div class="chefs-head">
+										<!-- Member background image -->
+										<!-- chef member image -->
+										<img class="chefs-img img-responsive" src="img/aboutus/pat.png" alt="" />
+									</div>
+									<!--Name / Heading -->
+									<h3><a href="#">Patrick</a></h3>
+									<!-- Member designation -->
+									<span>University of Massachusetts Amherst</span>
+									<div class="social">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<!-- Chef Member -->
+								<div class="chefs-member">
+									<!-- Chefs member header -->
+									<div class="chefs-head">
+										<!-- Member background image -->
+										<!-- chef member image -->
+										<img class="chefs-img img-responsive" src="img/aboutus/mina.png" alt="" />
+									</div>
+									<!--Name / Heading -->
+									<h3><a href="#">Mina</a></h3>
+									<!-- Member designation -->
+									<span>Mount Holyoke <br>College</span>
+									<div class="social">
+									</div>
+								</div>
+							</div>
+</div>
+</div>
+</div>							
+							
+						</div>
+					</div>
+				</div>
+				
+				<!-- Chefs End -->
+			
+			<!-- Showcase Start 
+				
+				<div class="showcase">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<!-- Showcase section item 
+								<div class="showcase-item">
+									<!-- Image 
+									<img class="img-responsive" src="img/fruit2.png" alt="" />
+									<!-- Heading 
+									<h3><a href="#">Equine Porno Sumos</a></h3>
+									<!-- Paragraph 
+									<p>Nam libero tempore, cum soluta nobis est minis voluptas assum simple and easy to distinguis quo.</p>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<!-- Showcase section item 
+								<div class="showcase-item">
+									<!-- Image 
+									<img class="img-responsive" src="img/fruit3.png" alt="" />
+									<!-- Heading 
+									<h3><a href="#">Equine Porno Sumos</a></h3>
+									<!-- Paragraph 
+									<p>Nam libero tempore, cum soluta nobis est minis voluptas assum simple and easy to distinguis quo.</p>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				 Showcase End -->
+				
+			</div><!-- / Inner Page Content End -->	
+			
+			<!-- Footer Start -->
+			
+			<!-- Footer Start -->
+
+			
+				<div class="footer padd">
+					<center>
+						<div class="logo">
+							<img class="img-responsive" src="img/logo.png" alt="" />
+							<!-- Heading -->
+							<h1>CookUps</h1>
+						</div>
+						<!-- Paragraph -->
+						<p>Cooking made easy!</p>
+						<!-- Paragraph -->
+						<p>&copy; Copyright 2014 <a href="#">CookUps</a></p>
+					</center>
+				</div>
+			</div>
+			
+			<!-- Footer End -->
+			
+			<!-- Footer End -->
+			
+		</div><!-- / Wrapper End -->
+		
+		
+		<!-- Scroll to top -->
+		<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span> 
+		
+		
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Pretty Photo JS -->
+		<script src="js/jquery.prettyPhoto.js"></script>
+		<!-- Respond JS for IE8 -->
+		<script src="js/respond.min.js"></script>
+		<!-- HTML5 Support for IE -->
+		<script src="js/html5shiv.js"></script>
+		<!-- Custom JS -->
+		<script src="js/custom.js"></script>
+		<!-- JS code for this page -->
+		<script>
+		</script>
+	</body>	
+</html>

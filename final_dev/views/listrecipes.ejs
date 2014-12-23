@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/js/encode.js"></script>
+
+  </head>
+  <body>
+<% if (title) { %>
+     <h2>I have a title!</h2>
+     <script>
+        var title = <%= title %>            
+     </script>
+<% } %>
+ </body>
+</html>

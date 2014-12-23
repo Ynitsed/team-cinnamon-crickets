@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!--for the slider-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--script src="/receive.js" type="text/javascript"></script-->
+
+    <script>
+    var counter = 1;
+    var limit = 10;
+    var search_url="";
+    var id_string= "_app_id=4667a454";
+    var key_string="_app_key=19e631ca5cc3f554227ff9ee8bc5c753";
+    var id_key=id_string+"&"+key_string;
+    var base_url="http://api.yummly.com/v1/api/recipes?"+id_key;
+    var search_string=<%- JSON.stringify(search_string) %>;
+    search_string=search_string.substring(0,search_string.indexOf("&time-hour"));
+    console.log(search_string);
+    $( "#results" ).text( search_string );
+    search_url=base_url+"&"+search_string;
+    console.log(search_url);
+
+    $.get( search_url, function( data ) {
+  $( ".result" ).html( data );
+  var attribution= data.attribution;
+  var html=attribution.html;
+  var url=attribution.url;
+  var text=attribution.text;
+  var totalMatchCount= data.totalMatchCount;
+  var matches= data.matches;
+  var facetCount= data.facetCount;
+  var criteria= data.criteria;
+  var recipe_list="";
+  recipe_list+="attribution: "+html+"<br />"+url+"<br />"+text+"<br />"+"totalMatchCount: "+ totalMatchCount+"<br />"+criteria+"<br />";
+  console.log("attribution "+attribution);
+  console.log("totalMatchCount "+totalMatchCount);
+  console.log("facetCount "+facetCount);
+
+  for(var i=0;i<matches.length;i++){
+  console.log(matches[i]);
+  recipe_list+="<br />"+"recipe #"+i+"<br />";
+  var imageUrlsBySize=matches[i].imageUrlsBySize["90"];
+  var sourceDisplayName=matches[i].sourceDisplayName;
+  var ingredients=matches[i].ingredients;
+  var id=matches[i].id;
+  var smallImageUrls=matches[i].smallImageUrls;
+  var totalTimeInSeconds= matches[i].totalTimeInSeconds;
+  var rating= matches[i].rating;
+  var attributes=matches[i].attributes;
+  var cuisine= attributes.cuisine;
+  var holiday=attributes.holday;
+  var course= attributes.course;
+  var recipeName=matches[i].recipeName;
+  if (flavors){
+  var flavors=matches[i].flavors;
+  var bitterness=flavors.bitter;
+  var meaty=flavors.meaty;
+  var piquant= flavors.piquant;
+  var salty=flavors.salty;
+  var sour=flavors.sour;
+  var sweet=flavors.sweet;
+  var flavours="bitterness: "+bitterness+"<br />";
+  }
+  recipe_list+=recipeName+"<br />"+"sourceDisplayName: "+sourceDisplayName+"<br />"+"ingredients: "+ingredients+"<br />"+"id: "+id+"<br />"+"totalTimeInSeconds: "+totalTimeInSeconds+"<br />"+"rating: "+rating+"<br />"+"attributes: "+"<br />"+cuisine+"<br />"+holiday+"<br />"+course+"<br />";
+  console.log("imageUrlsBySize "+imageUrlsBySize);
+  console.log("sourceDisplayName "+sourceDisplayName);
+  console.log("ingredients "+ingredients);
+  console.log("id "+id);
+  console.log("smallImageUrls "+smallImageUrls);
+  console.log("rating "+rating);
+  }
+  document.getElementById("recipe").innerHTML=recipe_list;
+  console.log(criteria);
+  alert( "Load was performed." );
+});
+  
+  function addString(originalString, add_string){
+    return originalString+=originalString+"<br />"+add_string;
+  }
+    </script>
+    <div id="recipe">
+    </div>
+  </body>
+</html>

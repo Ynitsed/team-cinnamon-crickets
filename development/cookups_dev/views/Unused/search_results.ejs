@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if IE]><link rel="stylesheet" href="css/ie-style.css"><![endif]-->
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="css_p/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css_p/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css_p/style.css">
+    <link rel="stylesheet" type="text/css" href="css_p/responsiveness.css">
+    <script type="text/javascript" src="js_p/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/dbquery.js"></script>
+
+  </head>
+
+  <style type="text/css">
+  #hideAll
+ {
+   position: fixed;
+   left: 0px; 
+   right: 0px; 
+   top: 0px; 
+   bottom: 0px; 
+   background-color: white;
+   z-index: 99; 
+ }
+ </style>
+  <body>
+  
+    <!--START CARDS-->
+
+    <!-- Portfolio Section
+    ================================================== -->
+    <div id="recipes" class="grid">
+      <figure id ="recipe-card" class="effect-portfolio wow fadeIn" data-wow-duration="3s"> <!-- Portfolio 3 -->
+        <img id="recipe-img" src="http://cdn3.howtogeek.com/wp-content/uploads/2012/12/Plain-Black-Wallpaper.png" alt="03_img"/> <!-- Your image here -->
+        <figcaption> <!-- Caption -->
+          <h3>Search Results</h3><br>
+          <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">View more</a>
+        </figcaption> <!-- End caption -->   
+      </figure> <!-- End portfolio 3 -->
+</div> <!-- End Portfolio Section -->
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 3 -->
+    <div id="full-recipes">
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Recipe Search Results</h2>
+                            <img class="img-responsive" src="http://placehold.it/550x400" alt="Image" style='float: left;'>
+                            <p></p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Recipe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+    <!-- jQuery / JavaScript plugins
+    ================================================== -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js_p/jquery-1.11.0.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="js_p/bootstrap.js"></script>
+        
+    <!-- My Custom Plugin JavaScript -->
+    <script type="text/javascript" src="js_p/main.js"></script>
+
+    <!--END CARDS-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!--for the slider-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--script src="/receive.js" type="text/javascript"></script-->
+
+    <script>
+    document.getElementById("hideAll").style.display = "block";
+    var index = 0;
+    function addNewMatch(match) {
+      console.log(match);
+    var imageUrlsBySize=match.imageUrlsBySize;
+    if (imageUrlsBySize){
+      var imagesrc=imageUrlsBySize["90"];
+    }
+    else{
+      var imagesrc="http://cdn3.howtogeek.com/wp-content/uploads/2012/12/Plain-Black-Wallpaper.png";
+    }
+    if(match.sourceDisplayName){
+      var sourceDisplayName=match.sourceDisplayName;
+    }
+    else{
+      var sourceDisplayName=match.recipeName;
+    }
+    var ingredients=match.ingredients.join("; ");
+    var id=match.id;
+    if(match.smallImageUrls){
+      var smallImageUrls=match.smallImageUrls[0];
+    }
+    else{
+      var imagesrc="http://cdn3.howtogeek.com/wp-content/uploads/2012/12/Plain-Black-Wallpaper.png";
+    }
+    var totalTimeInSeconds= match.totalTimeInSeconds;
+    var hours_time=Math.floor(totalTimeInSeconds/3600);
+    var minute_time=(Math.floor(totalTimeInSeconds/60))%60;[]
+    if(match.rating){
+      var rating= match.rating;
+    }
+    else{
+      var rating= 3;
+    }
+
+    var attributes=match.attributes;
+    if(attributes){
+      var cuisine= attributes.cuisine;
+      var holiday=attributes.holday;
+      var course= attributes.course;
+      var recipeName=match.recipeName;
+    }
+    var flavors=match.flavors;
+    if (flavors){
+      var bitterness=flavors.bitter;
+      if(flavors.piquant){
+        var piquant= flavors.piquant;
+      }
+      var meaty=flavors.meaty;
+      var salty=flavors.salty;
+      var sour=flavors.sour;
+      var sweet=flavors.sweet;
+      var flavours="bitterness: "+bitterness+"<br />";
+    }
+    var recipe_list="<br />"+"Ingredients: "+ingredients+"<br /> <br />"+"ID: "+id+"<br /> <br />"+"Time: "+hours_time+" hour(s) "+ minute_time+" minute(s) "+"<br /> <br />"+"Rating: "+rating;
+    if (cuisine){
+      recipe_list+="<br /> <br />"+"Cuisine Type: "+cuisine;}
+    if (holiday){
+      recipe_list+="<br /> <br />"+"Holiday: "+holiday;}
+    if (course){
+      recipe_list+="<br /> <br />"+"Course: "+course;}
+
+    console.log("imageUrlsBySize "+imageUrlsBySize);
+    console.log("sourceDisplayName "+sourceDisplayName);
+    console.log("ingredients "+ingredients);
+    console.log("id "+id);
+    console.log("smallImageUrls "+smallImageUrls);
+    console.log("rating "+rating);
+    
+    var section = document.getElementById('recipes');
+
+    var rDiv = document.getElementById('recipe-card').cloneNode(true);
+    rDiv.setAttribute("id", 'recipe-card'+index);
+    var img_tag=rDiv.getElementsByTagName('img');
+    var h2_tag=rDiv.getElementsByTagName('h3')[0];
+    var a=rDiv.getElementsByTagName('a')[0];
+    img_tag[0].src=smallImageUrls;
+    h2_tag.innerHTML=recipeName;
+    console.log("h2_tag: "+h2_tag);
+    section.appendChild(rDiv);
+
+    a.href='#recipe-full'+index;
+    var full_recipes= document.getElementById('full-recipes');
+    var single_recipe = document.getElementById('portfolioModal3').cloneNode(true);
+    single_recipe.setAttribute("id", 'recipe-full'+index);
+    var recipe_image=single_recipe.getElementsByTagName('img');
+    recipe_image[0].src=smallImageUrls;
+    var h2_full=single_recipe.getElementsByTagName('h2')[0];
+    h2_full.innerHTML=recipeName;
+    var p_full=single_recipe.getElementsByTagName('p')[0];
+    p_full.innerHTML=recipe_list
+    full_recipes.appendChild(single_recipe);
+    index ++;
+  }
+  
+    </script>
+
+    <% if(recs){ %>
+    <% console.log("hello"); %>
+    <% for(var r in recs) { %>
+	<script>
+	addNewMatch(JSON.parse(<%-JSON.stringify(r);%>));
+	</script>
+  <% if(query){ %>
+    <% query.start = query.nextstart; delete query.nextstart; %>
+    <% var querystring = JSON.stringify(query); %>
+  <form method="get" action="/formreq">
+    <input type="hidden" name="savedquery" value=<%=querystring%> >
+    <input type="submit" value="Next Page">
+  <% } %>
+    <% } %>
+    <% } %>
+    <div id="recipe">
+    </div>
+  </div>
+
+
+    <!-- Scroll to top -->
+    <span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span> 
+    
+    
+    
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="js/html5shiv.js"></script>
+
+  </body>
+</html>

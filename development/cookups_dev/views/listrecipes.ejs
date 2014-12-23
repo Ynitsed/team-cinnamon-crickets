@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Title here -->
+
+		<title><%=title %></title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <link rel="stylesheet" type="text/css" href="css_p/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css_p/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css_p/style.css">
+    <link rel="stylesheet" type="text/css" href="css_p/responsiveness.css">
+
+    <script type="text/javascript" src="js_p/modernizr.custom.js"></script>
+
+    
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="ResponsiveWebInc">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+		<link href="css/settings.css" rel="stylesheet">		
+		<!-- FlexSlider Css -->
+		<link rel="stylesheet" href="css/flexslider.css" media="screen" />
+		<!-- Portfolio CSS -->
+		<link href="css/prettyPhoto.css" rel="stylesheet">
+		<!-- Font awesome CSS -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">	
+		<!-- Custom Less -->
+		<link href="css/less-style.css" rel="stylesheet">	
+		<!-- Custom CSS -->
+		<link href="css/style.css" rel="stylesheet">
+		<!--[if IE]><link rel="stylesheet" href="css/ie-style.css"><![endif]-->
+
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/ico" href="img/fav.ico"/>
+	</head>
+	
+	<body>
+	
+		
+		<!-- Page Wrapper -->
+		<div class="wrapper">
+		
+			<!-- Header Start -->
+			
+			<div class="header">
+				<div class="container">
+					<!-- Header top area content -->
+					
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-sm-5">
+							<!-- Link -->
+							<a href="/">
+								<!-- Logo area -->
+								<div class="logo">
+									<img class="img-responsive" src="img/logo.png" alt="" />
+									<!-- Heading -->
+									<h1>CookUps</h1>
+									<!-- Paragraph -->
+									<p>Cooking made Easy!</p>
+								</div>
+							</a>
+							<div id = "woopydoopyloopyloo"></div>
+							<!--<script> 
+							if(typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+
+    if(localStorage.getItem("userName") === null){
+
+    }else{
+    	 document.getElementById("woopydoopyloopyloo").innerHTML = localStorage.getItem("lastname");
+
+    }
+ } else {
+    // Sorry! No Web Storage support..
+}
+
+
+							 </script> -->
+						</div>
+						<div class="col-md-8 col-sm-7">
+							<!-- Navigation -->
+							<nav class="navbar navbar-default navbar-right" role="navigation">
+								<div class="container-fluid">
+									<!-- Brand and toggle get grouped for better mobile display -->
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+											<span class="sr-only">Toggle navigation</span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+									</div>
+
+									<!-- Collect the nav links, forms, and other content for toggling -->
+									
+									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+										<ul class="nav navbar-nav">
+
+
+											
+										    
+											
+											
+											<body>
+											<li><a href="/"><img src="img/nav-menu/nav1.jpg" class="img-responsive" alt="" /> Home</a></li>
+											
+											<li><a href="/form"><img src="img/nav-menu/nav3.jpg" class="img-responsive" alt="" />Search</a></li>
+
+
+											<!--<% if(!user) { %>
+
+											<input type="image" id = "proofile" src="img/put it in.png"   data-toggle="modal" data-target="#login" alt=""/>
+											
+
+											<% } %>-->
+
+											<% if(user) { %>
+
+                      <li><a href="/viewProfile"><img src=<%=user.picture %> onError="this.onerror=null;this.src='img/squaredefault.png';" class="img-responsive" alt="" /><%= user.uname %></a></li>
+                
+                      <% } %>
+
+											
+											
+											
+<!-- Button trigger modal -->
+
+    <!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <center>
+          <form method="post" action="/user/auth" class="form-signin" role="form">
+            <br>
+              <label for="inputEmail" class="sr-only">Email</label>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus>
+        
+              <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required> <br>
+
+              <button class="btn btn-default">Log In</button>
+        </form>
+
+        </center>
+      </div>
+      <br>
+        <div class="modal-footer">
+      
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signup">Sign Up</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <center>
+          <form method="post" action="/user/newuser" class="form-signin" role="form">
+            <br>
+              <label for="inputEmail" class="sr-only">Username</label>
+                <input type="username" id="inputEmail" class="form-control" placeholder="Username" name="uname" required autofocus>
+              
+              <label for="inputEmail" class="sr-only">Email</label>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus>
+
+              <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+
+              <label for="inputPassword" class="sr-only">Retype Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="retypepassword" placeholder="Retype Password" required> <br>
+
+              <button class="btn btn-default">Sign Up</button>
+        </form>
+
+        </center>
+      </div>
+      <br>
+        <div class="modal-footer">
+      
+          <button type="button" class="btn btn-default" data-dismiss="modal">Log In</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ 
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+											<!-- <script>
+											if(typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+
+    if(localStorage.getItem("userName") === null){
+    	document.getElementById("proofile").innerHTML = "Log In";
+
+    }else{
+    	 document.getElementById("proofile").innerHTML = "Profile";
+
+    }
+ } else {
+    // Sorry! No Web Storage support..
+} 
+
+									</script> -->
+											
+												<div class="modal fade bs-example-modal-sm" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												  <div class="modal-dialog modal-sm">
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+												      </div>
+												      <div class="modal-body">
+												        <center>
+												          <form method="post" action="/user/auth" class="form-signin" role="form">
+												            <br>
+												              <label for="inputEmail" class="sr-only">Email</label>
+												                <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus>
+												        
+												              <label for="inputPassword" class="sr-only">Password</label>
+												                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required> <br>
+
+												              <button class="btn btn-default">Log In</button>
+												        </form>
+
+												        </center>
+												      </div>
+												      <br>
+												        <div class="modal-footer">
+												      
+												          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signup">Sign Up</button>
+
+												      </div>
+												    </div>
+												  </div>
+												</div>
+											</li>
+											
+											
+											
+											<li><a href="/about"><img src="img/nav-menu/nav6.jpg" class="img-responsive" alt="" /> About</a></li>
+
+											<% if(!user) { %>
+
+											<li><a id = "proofile" data-toggle="modal" data-target="#login" alt="" /><img src="img/nav-menu/nav5.jpg" class="img-responsive" alt="" onmouseover=""/>Login</a></li>
+											<style>
+											#proofile{
+												cursor: pointer;
+											}
+											</style>
+
+											<% } %>
+
+											<% if(user) { %>
+											<li><a href="/user/logout"><img src="img/nav-menu/nav5.jpg" class="img-responsive" alt="" />Logout</a></li>
+											<% } %>
+										</ul>
+									</div><!-- /.navbar-collapse -->
+								</div><!-- /.container-fluid -->
+							</nav>
+						</div>
+					</div>
+				</div> <!-- / .container -->
+			</div>
+			
+			<!-- Header End -->
+
+<script>
+    var index=0;0
+
+    function allRecipes(allRecipes){
+    	console.log("in recipes--------------------------");
+    	for (var i=0; i< allRecipes.length; i++){
+    		addNewMatch(allRecipes[i]);
+    	}
+    }
+
+    function addNewMatch(match) {
+    	console.log(match);
+    var imageUrlsBySize=match.imageUrlsBySize;
+    if (imageUrlsBySize){
+    var imagesrc=imageUrlsBySize["90"];}
+    var sourceDisplayName=match.sourceDisplayName;
+    var ingredients=match.ingredients.join("; ");
+    var id=match.id;
+    var smallImageUrls=match.smallImageUrls[0];
+    var totalTimeInSeconds= match.totalTimeInSeconds;
+    var hours_time=Math.floor(totalTimeInSeconds/3600);
+    var minute_time=(Math.floor(totalTimeInSeconds/60))%60;
+    var rating= match.rating;
+    var attributes=match.attributes;
+    if(attributes){
+ 	   var cuisine= attributes.cuisine;
+    	var holiday=attributes.holday;
+    	var course= attributes.course;
+    }
+    var recipeName=match.recipeName;
+    var flavors=match.flavors;
+    if (flavors){
+    var bitterness=flavors.bitter;
+    var meaty=flavors.meaty;
+    var piquant= flavors.piquant;
+    var salty=flavors.salty;
+    var sour=flavors.sour;
+    var sweet=flavors.sweet;
+    var flavours="bitterness: "+bitterness+"<br />";
+    }
+    var recipe_list="<b> Ingredients: </b>"+ingredients+"<br /> <br />"+"<b>ID: </b>"+id+"<br /> <br />"+"<b>Time: </b>"+hours_time+" hour(s) "+ minute_time+" minute(s) "+"<br /> <br />"+"<b>Rating: </b>"+rating;
+    if (cuisine){
+      recipe_list+="<br /> <br />"+"<b>Cuisine Type: </b>"+cuisine;}
+    if (holiday){
+      recipe_list+="<br /> <br />"+"<b>Holiday: </b>"+holiday;}
+    if (course){
+      recipe_list+="<br /> <br />"+"<b>Course: </b>"+course;}
+    recipe_list += "<br /> <br /> <a href"
+    if(isNaN(id)){
+      recipe_list += "<a href="+"http://www.yummly.com/recipe/"+id+ " target=\"_blank\"> <b>View recipe at Yummly: </b></a >";
+      recipe_list += "<img src=\'http://static.yummly.com/api-logo.png\'/>";
+    } else{
+      recipe_list += "<a href=\'/recipe/view?rid=" + encodeURI(id) + "\' > <b>View Full Recipe </b></a>";
+    }
+    
+    var section = document.getElementById('recipes');
+
+    var rDiv = document.getElementById('recipe-card').cloneNode(true);
+    rDiv.setAttribute("id", 'recipe-card'+index);
+    var img_tag=rDiv.getElementsByTagName('img');
+    var h2_tag=rDiv.getElementsByTagName('h3')[0];
+    var a=rDiv.getElementsByTagName('a')[0];
+    img_tag[0].src=smallImageUrls;
+    h2_tag.innerHTML=recipeName;
+    console.log("h2_tag: "+h2_tag);
+    section.appendChild(rDiv);
+
+    a.href='#recipe-full'+index;
+    var full_recipes= document.getElementById('full-recipes');
+    var single_recipe = document.getElementById('portfolioModal3').cloneNode(true);
+    single_recipe.setAttribute("id", 'recipe-full'+index);
+    var recipe_image=single_recipe.getElementsByTagName('img');
+    recipe_image[1].src=smallImageUrls;
+    // if(id.length > 10){
+    //   img_tag[1].src="http://static.yummly.com/api-logo.png";
+    // }
+    var h2_full=single_recipe.getElementsByTagName('h2')[0];
+    h2_full.innerHTML=recipeName;
+    var p_full=single_recipe.getElementsByTagName('h4')[0];
+    p_full.innerHTML=recipe_list
+    full_recipes.appendChild(single_recipe);
+    index++;
+  }
+
+    </script>
+
+
+ <!-- Portfolio Section
+    ================================================== -->
+    <div id="recipes" class="grid">
+
+      <figure id="recipe-card" class="effect-portfolio wow fadeIn" data-wow-duration="1s"> <!-- Portfolio 1 -->
+        <img id="recipe-img" src="http://cdn3.howtogeek.com/wp-content/uploads/2012/12/Plain-Black-Wallpaper.png" alt="03_img"/> <!-- Your image here -->
+        <figcaption> <!-- Caption -->
+          <h3 style="color:white">Search Results</h3>
+          <a href="#" class="portfolio-link" data-toggle="modal">View more</a> <!-- Larger image popup -->
+        </figcaption> <!-- End caption -->   
+      </figure> <!-- End portfolio 1 -->
+
+    </div> <!-- End Portfolio Section -->
+
+    <div id="full-recipes">
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="banner padd">
+            <div class="container">
+            <!-- Image -->
+            <img class="img-responsive" src="img/crown-white.png" alt="" />
+            <!-- Heading -->
+            <h2 class="white">Profile Page</h2>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+
+        <div class="showcase">
+
+            <div class="container">
+                
+                    
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                            <img class="img-responsive" src="http://placehold.it/550x400" alt="Image" style='vertical-align: middle; min-height: 180px'></div>
+                            <div class="col-md-8 col-sm-8"><h4 style="text-align: left;"></h4></div>
+                            </div>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Recipe</button>
+                        </div>
+                    
+          </div>      
+            </div>
+        </div>
+    </div>
+    <div>
+
+
+
+    <% if(recs){ %>
+	<script>
+	allRecipes(<%-JSON.stringify(recs)%>);
+	</script>
+	  <% for(var r in recs) { %>
+	  
+		<% console.log("Reci----------------------============pes: "); console.log(recs[r]); %>
+     	<% }%>
+    <% } %>
+
+    <% if(query){ %>
+    <%= "dbstart:" + query.dbstart %>
+    <%= "nextstart:" + query.nextstart %>
+    <%= "start:" + query.start %>
+    <% query.dbstart += query.nextstart; %>
+    <% query.start = query.nextstart; delete query.nextstart %>
+    <% var querystring = JSON.stringify(query); %>
+	<form method="get" action="/formreq">
+		<input type="hidden" name="savedquery" value=<%=querystring%> >
+		<!-- <input type="submit" value="Next Page"> -->
+    <button class="btn btn-default"><h3>Next Page</h3></button>
+	<% } %>
+ <!-- Footer Start -->
+
+			
+				<div class="footer padd">
+					<center>
+						<div class="logo">
+							<img class="img-responsive" src="img/logo.png" alt="" />
+							<!-- Heading -->
+							<h1>Cook Ups</h1>
+						</div>
+						<!-- Paragraph -->
+						<p>Cooking made easy!</p>
+						<!-- Paragraph -->
+						<p>&copy; Copyright 2014 <a href="#">CookUps</a></p>
+					</center>
+				</div>
+			</div>
+			
+			<!-- Footer End -->
+</html>

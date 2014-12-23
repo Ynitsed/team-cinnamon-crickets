@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if IE]><link rel="stylesheet" href="css/ie-style.css"><![endif]-->
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="css_p/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css_p/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css_p/style.css">
+    <link rel="stylesheet" type="text/css" href="css_p/responsiveness.css">
+    <script type="text/javascript" src="js_p/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/dbquery.js"></script>
+
+  </head>
+
+  <style type="text/css">
+  #hideAll
+ {
+   position: fixed;
+   left: 0px; 
+   right: 0px; 
+   top: 0px; 
+   bottom: 0px; 
+   background-color: white;
+   z-index: 99; /* Higher than anything else in the document */
+
+ }
+ </style>
+  <body>
+    <!-- Page Wrapper -->
+    <div class="wrapper">
+    <!-- Header Start -->
+      
+      <div class="header">
+        <div class="container">
+          <!-- Header top area content -->
+          
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-5">
+              <!-- Link -->
+              <a href="index.html">
+                <!-- Logo area -->
+                <div class="logo">
+                  <img class="img-responsive-h" src="img/logo.png" alt="" />
+                  <!-- Heading -->
+                  <h1>CookUps</h1>
+                  <!-- Paragraph -->
+                  <p>Food made easy.</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-8 col-sm-7">
+              <!-- Navigation -->
+              <nav class="navbar navbar-default navbar-right" role="navigation">
+                <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li><a href="index.html"><img src="img/nav-menu/nav1.jpg" class="img-responsive-h" alt="" /> Home</a></li>
+                      
+                      <li><a href="search.html"><img src="img/nav-menu/nav3.jpg" class="img-responsive-h" alt="" />Search</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/nav-menu/nav4.jpg" class="img-responsive-h" alt="" /> Profile <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="items.html">Profile Home</a></li>
+                          <li><a href="item-single.html">Add Recipe</a></li>
+                          <li><a href="checkout.html">History</a></li>
+                          <li><a href="reserve-seats.html">Diet Track</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="aboutus.html"><img src="img/nav-menu/nav2.jpg" class="img-responsive-h" alt="" /> Blog</a></li>
+                      <li><a href="aboutus.html"><img src="img/nav-menu/nav6.jpg" class="img-responsive-h" alt="" /> About</a></li>
+                      <li><a href="aboutus.html"><img src="img/nav-menu/nav5.jpg" class="img-responsive-h" alt="" /> Contact Us</a></li>
+                    </ul>
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+              </nav>
+            </div>
+          </div>
+        </div> <!-- / .container -->
+      </div>
+      
+      <!-- Header End -->
+      </div><!-- / Wrapper End -->
+    <div style="display: none" id="hideAll"><h1>Loading</h1></div>
+    <!--START CARDS-->
+
+    <!-- Portfolio Section
+    ================================================== -->
+    <div id="recipes" class="grid">
+      <figure id ="recipe-card" class="effect-portfolio wow fadeIn" data-wow-duration="3s"> <!-- Portfolio 3 -->
+        <img id="recipe-img" src="http://cdn3.howtogeek.com/wp-content/uploads/2012/12/Plain-Black-Wallpaper.png" alt="03_img"/> <!-- Your image here -->
+        <figcaption> <!-- Caption -->
+          <h3>Search Results</h3><br>
+          <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">View more</a>
+        </figcaption> <!-- End caption -->   
+      </figure> <!-- End portfolio 3 -->
+</div> <!-- End Portfolio Section -->
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 3 -->
+    <div id="full-recipes">
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Recipe Search Results</h2>
+                            <img class="img-responsive" src="http://placehold.it/550x400" alt="Image" style='float: left;'>
+                            <p></p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Recipe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+    <!-- jQuery / JavaScript plugins
+    ================================================== -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js_p/jquery-1.11.0.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="js_p/bootstrap.js"></script>
+        
+    <!-- My Custom Plugin JavaScript -->
+    <script type="text/javascript" src="js_p/main.js"></script>
+
+    <!--END CARDS-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!--for the slider-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--script src="/receive.js" type="text/javascript"></script-->
+
+    <script>
+    document.getElementById("hideAll").style.display = "block";
+
+    function addNewMatch(match, index) {
+    var imageUrlsBySize=match.imageUrlsBySize;
+    if (imageUrlsBySize){
+    var imagesrc=imageUrlsBySize["90"];}
+    var sourceDisplayName=match.sourceDisplayName;
+    var ingredients=match.ingredients.join("; ");
+    var id=match.id;
+    var smallImageUrls=match.smallImageUrls[0];
+    var totalTimeInSeconds= match.totalTimeInSeconds;
+    var hours_time=Math.floor(totalTimeInSeconds/3600);
+    var minute_time=(Math.floor(totalTimeInSeconds/60))%60;
+    var rating= match.rating;
+    var attributes=match.attributes;
+    var cuisine= attributes.cuisine;
+    var holiday=attributes.holday;
+    var course= attributes.course;
+    var recipeName=match.recipeName;
+    if (flavors){
+    var flavors=match.flavors;
+    var bitterness=flavors.bitter;
+    var meaty=flavors.meaty;
+    var piquant= flavors.piquant;
+    var salty=flavors.salty;
+    var sour=flavors.sour;
+    var sweet=flavors.sweet;
+    var flavours="bitterness: "+bitterness+"<br />";
+    }
+    var recipe_list="<br />"+"Ingredients: "+ingredients+"<br /> <br />"+"ID: "+id+"<br /> <br />"+"Time: "+hours_time+" hour(s) "+ minute_time+" minute(s) "+"<br /> <br />"+"Rating: "+rating;
+    if (cuisine){
+      recipe_list+="<br /> <br />"+"Cuisine Type: "+cuisine;}
+    if (holiday){
+      recipe_list+="<br /> <br />"+"Holiday: "+holiday;}
+    if (course){
+      recipe_list+="<br /> <br />"+"Course: "+course;}
+
+    console.log("imageUrlsBySize "+imageUrlsBySize);
+    console.log("sourceDisplayName "+sourceDisplayName);
+    console.log("ingredients "+ingredients);
+    console.log("id "+id);
+    console.log("smallImageUrls "+smallImageUrls);
+    console.log("rating "+rating);
+    
+    var section = document.getElementById('recipes');
+
+    var rDiv = document.getElementById('recipe-card').cloneNode(true);
+    rDiv.setAttribute("id", 'recipe-card'+index);
+    var img_tag=rDiv.getElementsByTagName('img');
+    var h2_tag=rDiv.getElementsByTagName('h3')[0];
+    var a=rDiv.getElementsByTagName('a')[0];
+    img_tag[0].src=smallImageUrls;
+    h2_tag.innerHTML=recipeName;
+    console.log("h2_tag: "+h2_tag);
+    section.appendChild(rDiv);
+
+    a.href='#recipe-full'+index;
+    var full_recipes= document.getElementById('full-recipes');
+    var single_recipe = document.getElementById('portfolioModal3').cloneNode(true);
+    single_recipe.setAttribute("id", 'recipe-full'+index);
+    var recipe_image=single_recipe.getElementsByTagName('img');
+    recipe_image[0].src=smallImageUrls;
+    var h2_full=single_recipe.getElementsByTagName('h2')[0];
+    h2_full.innerHTML=recipeName;
+    var p_full=single_recipe.getElementsByTagName('p')[0];
+    p_full.innerHTML=recipe_list
+    full_recipes.appendChild(single_recipe);
+  }
+
+
+
+    var counter = 1;
+    var limit = 10;
+    var search_url="";
+    var id_string= "_app_id=4667a454";
+    var key_string="_app_key=19e631ca5cc3f554227ff9ee8bc5c753";
+    var id_key=id_string+"&"+key_string;
+    var base_url="http://api.yummly.com/v1/api/recipes?"+id_key;
+    var search_string=<%- JSON.stringify(search_string) %>;
+    var hour_index=search_string.indexOf("&time-hour");
+    if (hour_index>0){
+          var search_string_before=search_string.substring(0,search_string.indexOf("&time-hour"));
+      var min_index=search_string.indexOf("&time-minute=");
+      var hour_start_index=hour_index+"&time-hour=".length;
+      console.log(hour_start_index);
+      var hour=search_string.substring(hour_start_index, search_string.indexOf("&",hour_start_index));
+      var time=3600*hour;
+      var search_string_after;
+      var time_string="&maxTotalTimeInSeconds="
+      if (min_index>0){
+        min_start_index=min_index+"&time-minute=".length;
+        console.log(min_start_index);
+        var minute=search_string.substring(min_start_index, search_string.indexOf("&",min_start_index));
+        console.log(hour);
+        console.log(minute);
+      var time=time+60*minute;
+        search_string_after=search_string.substring(search_string.indexOf("&", min_index+1));
+      }
+      else{
+        search_string_after=search_string.substring(search_string.indexOf("&", min_index));
+      }
+      time_string=time_string+time;
+      if (time>0){
+      search_string=search_string_before+time_string+search_string_after;
+    }
+      else{
+        search_string=search_string_before+search_string_after;
+      }
+
+    }
+    console.log(search_string);
+    $( "#results" ).text( search_string );
+    search_url=base_url+"&"+search_string;
+    console.log(search_url);
+
+    $.get( search_url, function( data ) {
+  $( ".result" ).html( data );
+  var attribution= data.attribution;
+  var html=attribution.html;
+  var url=attribution.url;
+  var text=attribution.text;
+  var totalMatchCount= data.totalMatchCount;
+  var matches= data.matches;
+  var facetCount= data.facetCount;
+  var criteria= data.criteria;
+  var recipe_list="";
+  recipe_list+="attribution: "+html+"<br />"+url+"<br />"+text+"<br />"+"totalMatchCount: "+ totalMatchCount+"<br />"+criteria+"<br />";
+  console.log("attribution "+attribution);
+  console.log("totalMatchCount "+totalMatchCount);
+  console.log("facetCount "+facetCount);
+
+  for(var i=0;i<matches.length;i++){
+  console.log(matches[i]);
+  addNewMatch(matches[i], i);
+  recipe_list+="<br />"+"recipe #"+i+"<br />";
+  var imageUrlsBySize=matches[i].imageUrlsBySize["90"];
+  var sourceDisplayName=matches[i].sourceDisplayName;
+  var ingredients=matches[i].ingredients;
+  var id=matches[i].id;
+  var smallImageUrls=matches[i].smallImageUrls[0];
+  var totalTimeInSeconds= matches[i].totalTimeInSeconds;
+  var rating= matches[i].rating;
+  var attributes=matches[i].attributes;
+  var cuisine= attributes.cuisine;
+  var holiday=attributes.holday;
+  var course= attributes.course;
+  var recipeName=matches[i].recipeName;
+  if (flavors){
+  var flavors=matches[i].flavors;
+  var bitterness=flavors.bitter;
+  var meaty=flavors.meaty;
+  var piquant= flavors.piquant;
+  var salty=flavors.salty;
+  var sour=flavors.sour;
+  var sweet=flavors.sweet;
+  var flavours="bitterness: "+bitterness+"<br />";
+  }
+  recipe_list+=recipeName+"<br />"+"sourceDisplayName: "+sourceDisplayName+"<br />"+"ingredients: "+ingredients+"<br />"+"id: "+id+"<br />"+"totalTimeInSeconds: "+totalTimeInSeconds+"<br />"+"rating: "+rating+"<br />"+"attributes: "+"<br />"+cuisine+"<br />"+holiday+"<br />"+course+"<br />";
+  console.log("imageUrlsBySize "+imageUrlsBySize);
+  console.log("sourceDisplayName "+sourceDisplayName);
+  console.log("ingredients "+ingredients);
+  console.log("id "+id);
+  console.log("smallImageUrls "+smallImageUrls);
+  console.log("rating "+rating);
+  }
+  // document.getElementById("recipe").innerHTML=recipe_list;
+  console.log(criteria);
+
+  document.getElementById("hideAll").style.display = "none";
+  document.getElementById("hideAll").style.display = "none";
+  alert( "Load was performed." );
+});
+  
+  function addString(originalString, add_string){
+    return originalString+=originalString+"<br />"+add_string;
+  }
+    </script>
+
+    <div id="recipe">
+    </div>
+  </div>
+
+
+    <!-- Scroll to top -->
+    <span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span> 
+    
+    
+    
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="js/html5shiv.js"></script>
+
+  </body>
+</html>
